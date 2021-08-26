@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FETCH API</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!--In this example we have used a fake JSON API to see how we can fetch data using FETCH API, The concept is super simple and based on Promises-->
+  <h1>This site will generate images using fetch API</h1>  
+  <br>
+ 
+  <p id="demo">In this example I have taken a free REST API which was available in the internet and use the resources to examine if my I can manipulate the data available into the DOM <br> Upon the click of button the page will fetch data and load the available content from the database!!</p>
+  <button id="myBtn">Click me</button>
+
+  <script>
+let x = document.getElementById('demo');
+let y = document.getElementById('myBtn');
+
+y.addEventListener('click', getPhotos);
+
+function getPhotos(){
+
+    fetch('https://jsonplaceholder.typicode.com/photos')
+    .then((res)=>{return res.json()})
+    .then((data)=>{
+let output = "<h2> Now the content has loaded as you can see <h2>";
+    data.forEach((value)=>{
+        output+=
+`
+<br> <ul> 
+    <li> The album ID is: ${value.albumId} </li>
+    <li> The ID of the images is: ${value.id}</li>
+    <li>The title of the images is: ${value.title} </li>
+  
+
+    </ul>
+      <img src="${value.url}">  </img>
+       <img src="${value.thumbnailUrl}"> </img> `
+
+    })
+
+x.innerHTML= output;
+
+    })
+}
+
+
+
+  </script>
+</body>
+</html>

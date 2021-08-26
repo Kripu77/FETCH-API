@@ -1,0 +1,21 @@
+[
+
+
+    {
+"name": "Kripu",
+"age": 21,
+"sex": "Male"
+    },
+    {
+
+       "name" :"Samman",
+       "age" :22,
+       "sex": "traxxns"
+
+    },
+    {
+        "name": "Ajaya",
+        "age": 23,
+        "sex":"female"
+    }
+]
